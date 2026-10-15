@@ -3,10 +3,7 @@ name: CI
 on:
   push:
     branches: [main]
-    # La version de escritorio tiene su propio workflow.
-    paths-ignore: ['desktop/**']
   pull_request:
-    paths-ignore: ['desktop/**']
   workflow_dispatch:
 
 concurrency:
