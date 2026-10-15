@@ -86,14 +86,14 @@ jobs:
         run: |
           V="${{ steps.version.outputs.version }}"
           SETUP=$(ls src-tauri/target/release/bundle/nsis/*-setup.exe)
-          cp "$SETUP" "Reproductor-$V-setup.exe"
+          cp "$SETUP" "Haze-$V-setup.exe"
           cat > notas.md <<NOTAS
-          Bajá \`Reproductor-$V-setup.exe\` y abrilo. Se instala solo para tu usuario, sin pedir permisos de administrador.
+          Bajá \`Haze-$V-setup.exe\` y abrilo. Se instala solo para tu usuario, sin pedir permisos de administrador.
 
           La primera vez baja el motor de audio (mpv, ~30 MB). yt-dlp, deno y ffmpeg se bajan recién la primera vez que usás YouTube.
 
           Si ya la tenías, se actualiza encima sin perder la biblioteca ni los ajustes.
           NOTAS
           # --latest=false: "latest" queda para el APK de Android.
-          gh release create "$GITHUB_REF_NAME" "Reproductor-$V-setup.exe" \
-            --title "Escritorio $V" --notes-file notas.md --latest=false
+          gh release create "$GITHUB_REF_NAME" "Haze-$V-setup.exe" \
+            --title "Haze $V (escritorio)" --notes-file notas.md --latest=false
